@@ -12,8 +12,10 @@
         <property name="printedLoggerLevel" value="FINE"/>
     </bean>
 
+    <context:property-placeholder location="classpath:xmlexample/sport.properties"/>
+
     <bean id="myFortuneService"
-          class="xmlexample.HappyFortuneService"></bean>
+          class="xmlexample.RandomFortuneService"></bean>
 
 
     <bean id="myCoach"
@@ -24,6 +26,8 @@
     <bean id="myCricketCoach"
           class="xmlexample.CricketCoach">
         <property name="fortuneService" ref="myFortuneService"/>
+        <property name="emailAddress" value="${foo.email}"/>
+        <property name="teamName" value="${foo.team}"/>
     </bean>
 
 </beans>
