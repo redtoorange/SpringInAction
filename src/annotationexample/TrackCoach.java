@@ -2,9 +2,11 @@ package annotationexample;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("trackCoach")
+@Scope("prototype")
 public class TrackCoach implements Coach {
     // Field annotation inject
     @Autowired
