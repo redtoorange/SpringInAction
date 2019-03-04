@@ -1,5 +1,8 @@
 package annotationexample;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class CricketCoach implements Coach {
     private FortuneService fortuneService;
 
@@ -20,6 +23,9 @@ public class CricketCoach implements Coach {
         return fortuneService.getFortune();
     }
 
+    // Setter annotation inject
+    @Autowired
+    @Qualifier("happyFortuneService")
     public void setFortuneService(FortuneService fortuneService) {
         System.out.println("Inside setter");
         this.fortuneService = fortuneService;

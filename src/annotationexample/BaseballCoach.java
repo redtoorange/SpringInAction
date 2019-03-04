@@ -1,9 +1,14 @@
 package annotationexample;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class BaseballCoach implements Coach {
     private FortuneService fortuneService;
 
-    public BaseballCoach(FortuneService service){
+    // Constructor annotation inject
+    @Autowired
+    public BaseballCoach( @Qualifier("happyFortuneService") FortuneService service){
         fortuneService = service;
     }
 

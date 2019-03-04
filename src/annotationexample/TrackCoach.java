@@ -1,10 +1,15 @@
 package annotationexample;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("trackCoach")
 public class TrackCoach implements Coach {
-//    private FortuneService fortuneService;
+    // Field annotation inject
+    @Autowired
+    @Qualifier("randomFortuneService")
+    private FortuneService fortuneService;
 
 //    public TrackCoach(FortuneService service) {
 //        fortuneService = service;
@@ -17,8 +22,7 @@ public class TrackCoach implements Coach {
 
     @Override
     public String getDailyFortune() {
-//        return fortuneService.getFortune();
-        return "";
+        return fortuneService.getFortune();
     }
 
     public void create() {
